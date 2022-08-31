@@ -48,7 +48,6 @@ def create_products(conn):
     create_product(conn, ('Порошок', 250.00, 3))  # 14
     create_product(conn, ('Подсолнечное Масло', 240.00, 5))  # 15
 
-
 def update_product_quantity(conn, product):
     try:
         sql = '''UPDATE products SET quantity = ? WHERE id = ?'''
@@ -57,7 +56,6 @@ def update_product_quantity(conn, product):
         conn.commit()
     except Error as e:
         print(e)
-
 
 def update_product_price(conn, product):
     try:
@@ -68,7 +66,6 @@ def update_product_price(conn, product):
     except Error as e:
         print(e)
 
-
 def delete_product(conn, id):
     try:
         sql = '''DELETE FROM products WHERE id = ?'''
@@ -78,20 +75,17 @@ def delete_product(conn, id):
     except Error as e:
         print(e)
 
-
 def print_all_products(conn):
     try:
         sql = '''SELECT * FROM products'''
         cursor = conn.cursor()
         cursor.execute(sql)
-
         rows = cursor.fetchall()
         for row in rows:
             print(row)
 
     except Error as e:
         print(e)
-
 
 def search_by_price_and_quantity(conn):
     try:
@@ -104,7 +98,6 @@ def search_by_price_and_quantity(conn):
             print(row)
     except Error as e:
         print(e)
-
 
 def search_by_word(conn, word):
     try:
