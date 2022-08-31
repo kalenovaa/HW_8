@@ -1,7 +1,6 @@
 import sqlite3
 from sqlite3 import Error
 
-
 def create_connection(db_name):
     conn = None
     try:
@@ -10,14 +9,12 @@ def create_connection(db_name):
         print(e)
     return conn
 
-
 def create_table(conn, sql):
     try:
         cursor = conn.cursor()
         cursor.execute(sql)
     except Error as e:
         print(e)
-
 
 def create_product(conn, product: tuple):
     try:
@@ -29,7 +26,6 @@ def create_product(conn, product: tuple):
         conn.commit()
     except Error as e:
         print(e)
-
 
 def create_products(conn):
     create_product(conn, ('dirol', 35.50, 5))  # 1
